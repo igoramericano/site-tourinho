@@ -198,6 +198,7 @@
         .info-text {
             flex: 1;
             max-width: 50%;
+            text-align: center; /* Centraliza todo o texto da seção de informações */
         }
 
         .info-text .card {
@@ -242,49 +243,52 @@
             text-align: justify;
             color: var(--text-light);
         }
-        
-        .consultoria-section {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 50px 5%;
+
+        .info-text .consultoria-block {
+            background-color: #1a324a;
+            padding: 30px;
             border-radius: 10px;
-            margin-top: 20px;
+            margin-top: 30px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
         
-        .consultoria-section h2 {
-            font-size: 2.5em;
+        .info-text .consultoria-block h2 {
+            font-size: 2em;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .info-text .consultoria-block p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
             margin-bottom: 20px;
         }
         
-        .consultoria-section p {
-            font-size: 1.2em;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-        
-        .consultoria-section .features {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-        
-        .consultoria-section .feature-item {
+        .feature-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            font-size: 1.1em;
+            gap: 10px;
+            font-size: 1em;
             font-weight: 600;
         }
         
-        .consultoria-section .feature-item i {
+        .feature-item i {
             color: var(--secondary-color);
-            font-size: 1.5em;
+            font-size: 1.2em;
         }
         
-        .consultoria-section .cta-button {
+        .cta-button {
             background-color: var(--secondary-color);
             color: var(--primary-color);
             text-decoration: none;
@@ -295,7 +299,7 @@
             transition: background-color 0.3s;
         }
         
-        .consultoria-section .cta-button:hover {
+        .cta-button:hover {
             background-color: #e68a00;
         }
 
@@ -320,6 +324,8 @@
         .profile-details h3 {
             color: var(--primary-color);
             border-bottom: 2px solid var(--primary-color);
+            text-align: end;
+            font-weight: 600;
             padding-bottom: 10px;
             margin-top: 0;
         }
@@ -346,20 +352,30 @@
             margin: 0;
         }
 
-        .whatsapp-link {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
+        /* Novas classes para os links de mídias sociais */
+        .social-link {
             display: flex;
             align-items: center;
-            gap: 5px;
-            transition: color 0.3s;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
-        .whatsapp-link:hover {
-            color: var(--secondary-color);
+        .social-link:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            transform: scale(1.1);
         }
-
+        
+        .social-link i {
+            font-size: 1.5em;
+        }
+        
         .stats-section {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -404,14 +420,14 @@
         .bitcoin-price-section h2 {
             font-size: 2em;
             color: var(--secondary-color);
-            margin-bottom: 20px; /* Aumentei a margem inferior para maior espaçamento */
+            margin-bottom: 20px;
         }
         
         .price-container {
             display: flex;
             justify-content: center;
-            gap: 40px; /* Adicionei um espaçamento entre os dois preços */
-            flex-wrap: wrap; /* Para quebra de linha em telas menores */
+            gap: 40px;
+            flex-wrap: wrap;
         }
         
         .price-item {
@@ -419,7 +435,7 @@
             font-weight: 700;
             letter-spacing: 1px;
             margin: 0;
-            white-space: nowrap; /* Impede quebra de linha nos valores */
+            white-space: nowrap;
         }
 
         footer {
@@ -504,7 +520,7 @@
     <div class="header-actions">
         <nav>
             <a href="#sobre">Sobre</a>
-            <a href="#consultoria">Consultoria</a>
+            <a href="#sobre">Consultoria</a>
             <a href="#mentoria">Mentoria</a>
             <a href="#contato">Contato</a>
         </nav>
@@ -521,7 +537,7 @@
         <div class="chat-bubble">
             Bem-vindo ao mercado!
         </div>
-        <h1>João Lucas Tourinho - O Trader de Bitcoin</h1>
+        <h1>João Lucas Tourinho - Crypto Trader</h1>
         <p>Aprenda a drenar euforia e pânico do mercado. A mentoria certa para te ajudar a navegar pelo mundo das criptomoedas com estratégia e segurança.</p>
     </div>
     <div class="hero-image">
@@ -541,34 +557,33 @@
             </div>
         </div>
         <h3>Especialista em Criptomoedas</h3>
-        <p>Com mais de 7 anos de experiência, ajudo pessoas a entenderem e a operarem no mercado de criptomoedas, transformando o caos em oportunidade. Minha missão é democratizar o conhecimento do trading e impactar a vida de milhares de pessoas.</p>
+        <p>Com mais de 7 anos de experiência, ajudo pessoas a entenderem e a operarem no mercado de criptomoedas, transformando o caos em oportunidade. Minha missão é democratizar o conhecimento do trading e impactar a vida de mais de 1000 alunos.</p>
+        
+        <div class="consultoria-block">
+            <h2>Consultoria Personalizada</h2>
+            <p>
+                Minha mentoria é diferente porque eu me dedico a cada aluno de forma **individual**. Entendo suas necessidades e seu nível de conhecimento para criar um plano de aprendizado que realmente faça sentido para você.
+            </p>
+            <div class="features">
+                <div class="feature-item">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Plano de estudos exclusivo</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-users"></i>
+                    <span>Acesso a uma comunidade de traders</span>
+                </div>
+            </div>
+            <a href="#contato" class="cta-button">
+                Comece sua jornada agora!
+            </a>
+        </div>
     </div>
 </section>
-
-<section id="consultoria" class="consultoria-section">
-    <h2>Consultoria Personalizada</h2>
-    <p>
-        Minha mentoria é diferente porque eu me dedico a cada aluno de forma *individual*. Entendo suas necessidades e seu nível de conhecimento para criar um plano de aprendizado que realmente faça sentido para você.
-    </p>
-    <div class="features">
-        <div class="feature-item">
-            <i class="fas fa-user-friends"></i>
-            <span>Plano de estudos exclusivo</span>
-        </div>
-        <div class="feature-item">
-            <i class="fas fa-users"></i>
-            <span>Acesso a uma comunidade de traders</span>
-        </div>
-    </div>
-    <a href="#contato" class="cta-button">
-        Comece sua jornada agora! Fale comigo nas minhas redes
-    </a>
-</section>
-
 
 <section id="mentoria" class="details-section">
     <div class="profile-details">
-        <h3>Minha Bio</h3>
+        <h3>Minhas redes</h3>
         <dl>
             <div>
                 <dt>Nome:</dt>
@@ -581,16 +596,16 @@
             <div>
                 <dt>Instagram:</dt>
                 <dd>
-                    <a href="https://instagram.com/jlucastourinho" target="_blank" class="whatsapp-link">
-                        <i class="fab fa-instagram"></i> jlucastourinho
+                    <a href="https://instagram.com/jlucastourinho" target="_blank" class="social-link">
+                        <i class="fab fa-instagram"></i>
                     </a>
                 </dd>
             </div>
             <div>
                 <dt>Contato:</dt>
                 <dd>
-                    <a href="https://wa.me/5571999109330" target="_blank" class="whatsapp-link">
-                        <i class="fab fa-whatsapp"></i> Fale comigo
+                    <a href="https://wa.me/5571999109330" target="_blank" class="social-link">
+                        <i class="fab fa-whatsapp"></i>
                     </a>
                 </dd>
             </div>
