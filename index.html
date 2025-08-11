@@ -74,7 +74,7 @@
 
         .header-contact a {
             background-color: var(--accent-color);
-            color: var(--primary-color); /* Alterado para a cor primária */
+            color: var(--primary-color);
             text-decoration: none;
             padding: 10px 15px;
             border-radius: 20px;
@@ -206,6 +206,8 @@
             padding: 20px;
             border-radius: 10px;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
             gap: 15px;
             margin-bottom: 20px;
@@ -221,29 +223,24 @@
 
         .info-text h2 {
             font-size: 1.8em;
+            text-align: center;
             margin: 0;
         }
         
         .info-text h3 {
             font-size: 1.8em;
             margin: 0 0 10px 0;
+            text-align: center;
             color: var(--text-light);
         }
 
         .info-text p {
-            line-height: 2.6;
+            line-height: 1.6;
             font-family: "Quicksand", sans-serif;
-            font-size: 1.4em;
+            font-size: 1.2em; 
             font-weight: 600;
+            text-align: justify;
             color: var(--text-light);
-        }
-
-        .details-section {
-            padding: 50px 5%;
-            display: flex;
-            gap: 40px;
-            background-color: var(--tertiary-color);
-            margin-top: 20px;
         }
         
         .consultoria-section {
@@ -302,14 +299,17 @@
             background-color: #e68a00;
         }
 
-        /* Removido o expand/collapse para deixar sempre expandido */
         .details-section {
-            align-items: flex-start;
+            padding: 50px 5%;
+            display: flex;
+            gap: 40px;
+            background-color: var(--tertiary-color);
+            margin-top: 20px;
         }
         
         .profile-details {
             flex: 1;
-            max-width: 50%; /* Card de perfil sempre ocupando 50% */
+            max-width: 50%;
             background-color: #fff;
             padding: 30px;
             border-radius: 10px;
@@ -364,10 +364,10 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
-            opacity: 1; /* Sempre visível */
-            visibility: visible; /* Sempre visível */
-            transform: scale(1); /* Sempre expandido */
-            transition: none; /* Removida a transição de animação */
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            transition: none;
             flex: 2;
         }
 
@@ -382,7 +382,7 @@
         .stat-card .number {
             font-size: 3em;
             font-weight: 700;
-            color: var(--secondary-color); /* Alterado para a cor secundária */
+            color: var(--secondary-color);
             margin: 0;
         }
 
@@ -391,9 +391,8 @@
             font-weight: 600;
             color: #777;
         }
-
-        /* Nova seção de preço do Bitcoin */
-        #bitcoin-price-section {
+        
+        .bitcoin-price-section {
             background-color: var(--primary-color);
             color: var(--text-light);
             text-align: center;
@@ -402,16 +401,25 @@
             border-radius: 10px;
         }
         
-        #bitcoin-price-section h2 {
+        .bitcoin-price-section h2 {
             font-size: 2em;
             color: var(--secondary-color);
-            margin-bottom: 10px;
+            margin-bottom: 20px; /* Aumentei a margem inferior para maior espaçamento */
         }
         
-        #bitcoin-price-section .price-display {
+        .price-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* Adicionei um espaçamento entre os dois preços */
+            flex-wrap: wrap; /* Para quebra de linha em telas menores */
+        }
+        
+        .price-item {
             font-size: 2.5em;
             font-weight: 700;
             letter-spacing: 1px;
+            margin: 0;
+            white-space: nowrap; /* Impede quebra de linha nos valores */
         }
 
         footer {
@@ -448,7 +456,7 @@
                 margin-top: 0;
             }
             
-            .header-contact a, .header-contact .btn-btc {
+            .header-contact a {
                 width: 100%;
                 text-align: center;
             }
@@ -527,20 +535,20 @@
     </div>
     <div class="info-text">
         <div class="card">
-            <img src="tourinho2.png" alt="Minha foto">
+            <img src="tourinho.png" alt="Minha foto">
             <div>
                 <h2>Minha trajetória</h2>
             </div>
         </div>
         <h3>Especialista em Criptomoedas</h3>
-        <p>Com mais de 7 anos de experiência, ajudo pessoas a entenderem e a operarem no mercado de criptomoedas, transformando o caos em oportunidade. Minha missão é democratizar o conhecimento do trading e impactar a vida de mais de 1000 alunos.</p>
+        <p>Com mais de 7 anos de experiência, ajudo pessoas a entenderem e a operarem no mercado de criptomoedas, transformando o caos em oportunidade. Minha missão é democratizar o conhecimento do trading e impactar a vida de milhares de pessoas.</p>
     </div>
 </section>
 
 <section id="consultoria" class="consultoria-section">
     <h2>Consultoria Personalizada</h2>
     <p>
-        Minha mentoria é diferente porque eu me dedico a cada aluno de forma **individual**. Entendo suas necessidades e seu nível de conhecimento para criar um plano de aprendizado que realmente faça sentido para você.
+        Minha mentoria é diferente porque eu me dedico a cada aluno de forma *individual*. Entendo suas necessidades e seu nível de conhecimento para criar um plano de aprendizado que realmente faça sentido para você.
     </p>
     <div class="features">
         <div class="feature-item">
@@ -553,7 +561,7 @@
         </div>
     </div>
     <a href="#contato" class="cta-button">
-        Comece sua jornada agora!
+        Comece sua jornada agora! Fale comigo nas minhas redes
     </a>
 </section>
 
@@ -609,39 +617,55 @@
     </div>
 </section>
 
-<section id="bitcoin-price-section">
-    <h2>Cotação do Bitcoin agora</h2>
-    <div class="price-display">
-        <span id="bitcoin-price">Buscando...</span>
+<section class="bitcoin-price-section">
+    <h2>Cotação do Bitcoin</h2>
+    <div class="price-container">
+        <div class="price-item">
+            BTC/BRL: <span id="bitcoin-price-brl">Buscando...</span>
+        </div>
+        <div class="price-item">
+            BTC/USD: <span id="bitcoin-price-usd">Buscando...</span>
+        </div>
     </div>
 </section>
 
 <footer id="contato">
     <p>© 2025 João Lucas Tourinho - Todos os direitos reservados</p>
-    <p>Site desenvolvido por [Igor Americano]</p>
+    <p>Site desenvolvido por Igor Americano</p>
 </footer>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const btcPriceSpan = document.getElementById('bitcoin-price');
+        const btcPriceBrlSpan = document.getElementById('bitcoin-price-brl');
+        const btcPriceUsdSpan = document.getElementById('bitcoin-price-usd');
         
         async function getBitcoinPrice() {
             try {
-                const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=brl');
+                const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=brl,usd');
                 const data = await response.json();
-                const price = data.bitcoin.brl;
-                const formattedPrice = new Intl.NumberFormat('pt-BR', {
+                
+                const brlPrice = data.bitcoin.brl;
+                const usdPrice = data.bitcoin.usd;
+
+                const formattedBrlPrice = new Intl.NumberFormat('pt-BR', {
                     style: 'currency',
                     currency: 'BRL'
-                }).format(price);
-                btcPriceSpan.innerText = formattedPrice;
+                }).format(brlPrice);
+                
+                const formattedUsdPrice = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD'
+                }).format(usdPrice);
+
+                btcPriceBrlSpan.innerText = formattedBrlPrice;
+                btcPriceUsdSpan.innerText = formattedUsdPrice;
             } catch (error) {
                 console.error('Erro ao buscar o preço do Bitcoin:', error);
-                btcPriceSpan.innerText = 'Indisponível';
+                btcPriceBrlSpan.innerText = 'Indisponível';
+                btcPriceUsdSpan.innerText = 'Indisponível';
             }
         }
         
-        // Chama a função uma vez ao carregar a página e depois a cada 30 segundos
         getBitcoinPrice();
         setInterval(getBitcoinPrice, 30000);
     });
